@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\database",
+    "\\database\\migrations",
+    "\\resources",
+    "\\resources\\views",
+    "\\resources\\views\\admin",
+    "\\resources\\views\\auth",
+    "\\resources\\views\\dashboard",
+    "\\resources\\views\\dashboard\\projects",
+    "\\resources\\views\\layouts"
+  ],
+  "SelectedNode": "\\resources\\views\\dashboard\\projects\\addpro.blade.php",
+  "PreviewInSolutionExplorer": false
+}
