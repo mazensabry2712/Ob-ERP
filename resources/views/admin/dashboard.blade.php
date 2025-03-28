@@ -45,8 +45,8 @@
 								<div class="pb-0 mt-0">
 									<div class="d-flex">
 										<div class="">
-											<h4 class="tx-20 font-weight-bold mb-1 text-white">{{ $projectcount['aggregate'] }}</h4>
-                                           {{ dd($projectcount)}}
+											<h4 class="tx-20 font-weight-bold mb-1 text-white">{{ $projectcount[0]->aggregate}}</h4>
+                                           {{-- {{ dd($projectcount)}} --}}
 											<p class="mb-0 tx-12 text-white op-7">Compared to last month</p>
 										</div>
 										<span class="float-right my-auto mr-auto">
