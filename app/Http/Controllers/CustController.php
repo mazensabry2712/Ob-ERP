@@ -31,7 +31,7 @@ class CustController extends Controller
      */
     public function store(Request $request)
     {
-    
+
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'abb' => 'nullable|string|max:255'??null,
@@ -41,10 +41,10 @@ class CustController extends Controller
             // 'logo' => 'nullable|file|mimetypes:image/jpeg,image/png,image/gif,image/webp,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,image/svg+xml|max:2048'??null,
             'customercontactname' => 'nullable|string|max:255'??null,
             'customercontactposition' => 'nullable|string|max:255'??null,
-            'email' => 'nullable|email|max:255'??null, 
-            'phone' => 'nullable|string|max:15'??null, 
+            'email' => 'nullable|email|max:255'??null,
+            'phone' => 'nullable|string|max:15'??null,
         ]);
-        
+
         // التحقق من وجود اسم مكرر
         $b_exists = Cust::where('name', $validatedData['name'])->exists();
 
@@ -57,23 +57,6 @@ if ($request->hasFile('logo')) {
     ]);
 
     $data['logo'] = $path;
-    //$cust_id = Cust::latest()->first()->id; 
-    // $cust_id = Cust::latest()->first();// الحصول على آخر عميل مضاف
-    // $image = $request->file('logo');
-    // $file_name = $image->getClientOriginalName();
-    // $cust_number = $request->cust_number;
-
-    // حفظ تفاصيل المرفق
-    // $attachments = new custs_attachments();
-    // $attachments->file_name = $file_name;
-    // $attachments->cust_number = $cust_number;
-    // $attachments->Created_by = Auth::user()->name;
-    // $attachments->cust_id = $cust_id;
-    // $attachments->save();
-
-    // نقل الصورة إلى المجلد المحدد
-    // $imageName = $request->logo->getClientOriginalName();
-    // $request->logo->move(public_path('Attachments/' . $cust_number), $imageName);
 }
 
 // التحقق إذا كان العميل موجودًا بالفعل
@@ -89,7 +72,7 @@ Cust::create($validatedData);
 session()->flash('Add', 'Customer registration successful');
 
 // العودة إلى الصفحة السابقة أو إعادة توجيه
-//return back(); // أو 
+//return back(); // أو
 return redirect('/customer'); //حسب الحاجة
 
 
@@ -104,7 +87,7 @@ return redirect('/customer'); //حسب الحاجة
 
 
 
-      
+
         // if ($request->hasFile('logo')) {
 
         //     $cust_id = Cust::latest()->first()->id;
@@ -134,15 +117,15 @@ return redirect('/customer'); //حسب الحاجة
         // } else {
         //     // حفظ البيانات في قاعدة البيانات
         //     Cust::create($validatedData);
-            
-        
+
+
         //     session()->flash('Add', 'Customer registration successful');
         //     return redirect('/customer');
         // }
 
 
-        
-     
+
+
 
 
 
@@ -174,7 +157,7 @@ return redirect('/customer'); //حسب الحاجة
     public function update(Request $request)
     {
         $id = $request->id;
-    
+
         // التحقق من صحة البيانات
         $this->validate($request, [
             'name' => 'required|string|max:255'.$id,
@@ -183,10 +166,10 @@ return redirect('/customer'); //حسب الحاجة
              'logo' => 'nullable|file|mimetypes:image/jpeg,image/png,image/gif,image/webp,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,image/svg+xml|max:2048',
             'customercontactname' => 'nullable|string|max:255',
             'customercontactposition' => 'nullable|string|max:255',
-            'email' => 'nullable|email|max:255', 
-            'phone' => 'nullable|string|max:15', 
+            'email' => 'nullable|email|max:255',
+            'phone' => 'nullable|string|max:15',
         ]);
-    
+
         // العثور على العنصر وتحديث
         $aams = Cust::findOrFail($id); // نستخدم findOrFail للتأكد من وجود العنصر
         $aams->update([
@@ -199,7 +182,7 @@ return redirect('/customer'); //حسب الحاجة
             'email' => $request->email,
             'phone' => $request->phone,
         ]);
-    
+
         // رسالة تأكيد وإعادة توجيه
         session()->flash('edit', 'The section has been successfully modified');
         return redirect('/customer'); // إعادة التوجيه إلى صفحة الأقسام

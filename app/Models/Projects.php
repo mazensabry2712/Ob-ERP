@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class projects extends Model
 {
     protected $fillable = [
-        'pr_number', 'name', 'technologies', 'vendors_id', 'ds_id', 'aams_id', 'ppms_id', 
+        'pr_number', 'name', 'technologies', 'vendors_id', 'ds_id', 'aams_id', 'ppms_id',
         'value', 'customer_name', 'customer_po', 'ac_manager', 'project_manager',
-        'customer_contact_details', 'po_attachment', 'epo_attachment', 
-        'customer_po_date', 'customer_po_duration', 'customer_po_deadline', 
+        'customer_contact_details', 'po_attachment', 'epo_attachment',
+        'customer_po_date', 'customer_po_duration', 'customer_po_deadline',
         'description', 'Created_by'
     ];
 
@@ -34,4 +34,6 @@ class projects extends Model
     {
         return $this->belongsTo(ppms::class, 'ppms_id');
     }
+
+
 }

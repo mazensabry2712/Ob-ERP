@@ -202,8 +202,6 @@
                         </div>
 
 
-
-
                         <div class="row mt-4">
                             <div class="col">
                                 <div style="text-align:justify;">
@@ -214,7 +212,7 @@
                                 </div>
 
                                 <div class="col-sm-12 col-md-12">
-                                    <input type="file" name="pic" class="dropify"
+                                    <input type="file" name="po_attachment" class="dropify"
                                         accept=".pdf,.jpg, .png, image/jpeg, image/png" data-height="70" />
                                 </div><br>
 
@@ -229,34 +227,17 @@
                                     </div>
                                 </div>
 
-
                                 <div class="col-sm-12 col-md-12">
-                                    <input type="file" name="pic" class="dropify"
+                                    <input type="file" name="epo_attachment" class="dropify"
                                         accept=".pdf,.jpg, .png, image/jpeg, image/png" data-height="70" />
                                 </div><br>
 
                             </div>
 
 
-
-
-
-
-
-
                         </div>
 
-
-
                         <div class="row">
-
-
-                            {{-- <div class="col">
-                                <label for="customer_po_date" class="control-label  fc-datepicker ">Customer PO date
-                                </label>
-                                <input type="date" class="form-control" id="customer_po_date" name="customer_po_date"
-                                    title="   Please enter the  Customer PO date" value="{{ date('Y-m-d') }}">
-                            </div> --}}
 
                             <div class="col">
                                 <label>Customer PO date </label>
@@ -273,21 +254,15 @@
                             </div>
 
 
-
                             <div class="col">
                                 <label for="customer_po_duration" class="control-label fc-datepicker">Customer PO
                                     deadline </label>
                                 <input type="text" class="form-control" id="customer_po_deadline"
                                     name="customer_po_deadline" title="   Please enter the  Customer PO deadline"
-                                    value="{{ date('Y-m-d') }}">
+                                    value="{{ date('Y-m-d') }}"readonly>
                             </div>
 
                         </div>
-
-
-
-
-
 
                         <div class="row">
                             <div class="col mt-3">
@@ -295,119 +270,6 @@
                                 <textarea class="form-control" id="description" name="description" rows="3"></textarea>
                             </div>
                         </div><br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        {{-- 2 --}}
-                        {{-- <div class="row">
-
-
-
-
-
-
-
-
-                            <div class="col">
-                                <label for="inputName" class="control-label">القسم</label>
-                                <select name="Section" class="form-control SlectBox" onclick="console.log($(this).val())"
-                                    onchange="console.log('change is firing')">
-                                    <!--placeholder-->
-                                    <option value="" selected disabled>حدد القسم</option> --}}
-                        {{-- @foreach ($sections as $section)
-                                        <option value="{{ $section->id }}"> {{ $section->section_name }}</option>
-                                    @endforeach --}}
-                        {{-- </select>
-                            </div>
-
-                            <div class="col">
-                                <label for="inputName" class="control-label">المنتج</label>
-                                <select id="product" name="product" class="form-control">
-                                </select>
-                            </div>
-
-                            <div class="col">
-                                <label for="inputName" class="control-label">مبلغ التحصيل</label>
-                                <input type="text" class="form-control" id="inputName" name="Amount_collection"
-                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
-                            </div>
-
-                        </div> --}}
-
-
-                        {{-- 3 --}}
-
-                        {{-- <div class="row">
-
-                            <div class="col">
-                                <label for="inputName" class="control-label">مبلغ العمولة</label>
-                                <input type="text" class="form-control form-control-lg" id="Amount_Commission"
-                                    name="Amount_Commission" title="يرجي ادخال مبلغ العمولة "
-                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-                                    required>
-                            </div>
-
-                            <div class="col">
-                                <label for="inputName" class="control-label">الخصم</label>
-                                <input type="text" class="form-control form-control-lg" id="Discount"
-                                    name="Discount" title="يرجي ادخال مبلغ الخصم "
-                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-                                    value=0 required>
-                            </div>
-
-                            <div class="col">
-                                <label for="inputName" class="control-label">نسبة ضريبة القيمة المضافة</label>
-                                <select name="Rate_VAT" id="Rate_VAT" class="form-control" onchange="myFunction()">
-                                    <!--placeholder-->
-                                    <option value="" selected disabled>حدد نسبة الضريبة</option>
-                                    <option value=" 5%">5%</option>
-                                    <option value="10%">10%</option>
-                                </select>
-                            </div>
-
-                        </div>
-
-                        {{-- 4 --}}
-
-                        {{-- <div class="row">
-                            <div class="col">
-                                <label for="inputName" class="control-label">قيمة ضريبة القيمة المضافة</label>
-                                <input type="text" class="form-control" id="Value_VAT" name="Value_VAT" readonly>
-                            </div>
-
-                            <div class="col">
-                                <label for="inputName" class="control-label">الاجمالي شامل الضريبة</label>
-                                <input type="text" class="form-control" id="Total" name="Total" readonly>
-                            </div>
-                        </div> --}}
-
-                        {{-- 5 --}}
-                        {{-- <div class="row">
-                            <div class="col">
-                                <label for="exampleTextarea">ملاحظات</label>
-                                <textarea class="form-control" id="exampleTextarea" name="note" rows="3"></textarea>
-                            </div>
-                        </div><br> --}}
-
-
-
-
 
                         <div class="d-flex justify-content-center">
                             <button type="submit" class="btn btn-primary"> Save Project </button>
@@ -618,12 +480,47 @@
 
 
 
+{{-- <!-- تأكد من وجود عناصر الإدخال المناسبة في الصفحة -->
+<input type="date" id="customer_po_date" name="customer_po_date" placeholder="أدخل التاريخ">
+<input type="number" id="customer_po_duration" name="customer_po_duration" placeholder="أدخل عدد الأيام">
+<input type="text" id="customer_po_deadline" name="customer_po_deadline" placeholder="تاريخ الإنتهاء" readonly> --}}
 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // الحصول على عناصر الإدخال
+    const dateInput = document.getElementById('customer_po_date');
+    const durationInput = document.getElementById('customer_po_duration');
+    const deadlineInput = document.getElementById('customer_po_deadline');
 
+    // دالة لحساب تاريخ الإنتهاء
+    function calculateDeadline() {
+        const dateValue = dateInput.value; // يفترض أن يكون التاريخ بصيغة yyyy-mm-dd
+        const duration = parseInt(durationInput.value, 10);
 
+        if (dateValue && !isNaN(duration)) {
+            // تحويل النص إلى كائن تاريخ
+            const dateObj = new Date(dateValue);
+            // إضافة عدد الأيام
+            dateObj.setDate(dateObj.getDate() + duration);
 
+            // تنسيق التاريخ الناتج بصيغة yyyy-mm-dd
+            const dd = String(dateObj.getDate()).padStart(2, '0');
+            const mm = String(dateObj.getMonth() + 1).padStart(2, '0'); // الأشهر تبدأ من 0
+            const yyyy = dateObj.getFullYear();
+            const formattedDate = `${yyyy}-${mm}-${dd}`;
 
+            // عرض التاريخ المحسوب في حقل deadline
+            deadlineInput.value = formattedDate;
+        } else {
+            deadlineInput.value = '';
+        }
+    }
 
+    // إضافة الأحداث لتحديث التاريخ عند تغيير أي من الحقول
+    dateInput.addEventListener('change', calculateDeadline);
+    durationInput.addEventListener('input', calculateDeadline);
+});
+</script>
 
 
     {{-- <script>

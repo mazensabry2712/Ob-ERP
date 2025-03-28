@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\projects;
+use Flowframe\Trend\Trend;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -9,9 +11,20 @@ class DashboardController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+
+
     public function index()
     {
-        return view("admin.dashboard");
+         $projectcount = Trend::model(projects::class)
+         ->between(
+             start: now(),
+             end: now()->endOfMonth(),
+         )
+         ->perMonth()
+         ->count();
+
+        return view("admin.dashboard",compact('projectcount'));
     }
 
     /**

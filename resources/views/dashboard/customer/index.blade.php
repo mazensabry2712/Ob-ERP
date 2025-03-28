@@ -40,19 +40,20 @@
             </ul>
         </div>
     @endif
-   
+
 
 
     @foreach (['Error', 'Add', 'delete', 'edit'] as $msg)
-    @if (session()->has($msg))
-        <div class="alert alert-{{ $msg == 'Error' || $msg == 'delete' ? 'danger' : 'success' }} alert-dismissible fade show" role="alert">
-            <strong>{{ session()->get($msg) }}</strong>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    @endif
-@endforeach
+        @if (session()->has($msg))
+            <div class="alert alert-{{ $msg == 'Error' || $msg == 'delete' ? 'danger' : 'success' }} alert-dismissible fade show"
+                role="alert">
+                <strong>{{ session()->get($msg) }}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+    @endforeach
 
 
 
@@ -83,7 +84,7 @@
                                     <th>Customer Name </th>
                                     <th>Customer Abb </th>
                                     <th>Customer type </th>
-                                    <th> Customer Logo </th>
+                                    <th> Logo </th>
                                     <th> Customer Contact name </th>
                                     <th> Customer contact position </th>
                                     <th>Email </th>
@@ -129,7 +130,8 @@
                                     <td>{{ $cust->abb }}</td>
                                     <td>{{ $cust->tybe }}</td>
                                     {{-- <td>{{ $cust->custs_attachments->logo }}</td> --}}
-                                    <td>{{ $cust->logo }}</td>
+                                    {{-- <td>{{ $cust->logo }}</td> --}}
+                                    <td> <img src="{{ asset('storage/'.$cust->logo) }}" alt="" height="50"> </td>
                                     <td>{{ $cust->customercontactname }}</td>
                                     <td>{{ $cust->customercontactposition }}</td>
                                     <td>{{ $cust->email }}</td>

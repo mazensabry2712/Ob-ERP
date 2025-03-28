@@ -75,9 +75,9 @@
                                 </tr>
                                 </tr>
                             </thead>
-                        
+
                             <tbody>
-                                <?php $i=0; ?> 
+                                <?php $i=0; ?>
                                 @foreach ($projects as $project)
                                 <?php $i++; ?>
                                     <tr>
@@ -106,14 +106,10 @@
                                         <td>{{ $project->aams_id }}</td>
                                         <td>{{ $project->ppms_id }}</td>
                                         <td>{{ $project->customer_contact_details }}</td>
-                                        {{-- <td>{{ $project->po_attachment }}</td>   --}}
-                                        {{-- <td>{{ $project->epo_attachment }}</td>   --}}
-                                        
-                                        {{-- <td>{{ $project->po_attachment }}</td> --}}
-                                        <td> <img src="asset('storage/'.$project->po_attachment)" alt="" height="50"> </td>
-                                        {{-- <td>{{ $project->epo_attachment }}</td> --}}
-                                        <td> <img src="asset('storage/'.$project->epo_attachment)" alt="" height="50"> </td>
 
+                                        <td> <img src="{{ asset('storage/'.$project->po_attachment) }}" alt="" height="50"> </td>
+                                        {{-- <td>{{ $project->epo_attachment }}</td> --}}
+                                        <td> <img src="{{ asset('storage/'.$project->epo_attachment) }}" alt="" height="50"> </td>
                                         <td>{{ $project->customer_po_date }}</td>
                                         <td>{{ $project->customer_po_duration }}</td>
                                         <td>{{ $project->customer_po_deadline }}</td>

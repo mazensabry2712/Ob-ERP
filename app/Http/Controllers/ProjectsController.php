@@ -42,10 +42,12 @@ class ProjectsController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    { $data = $request->except(['po_attachment','epo_attachment']);
+    {
+
+        $data = $request->except(['po_attachment','epo_attachment']);
 
 
-        if($request->hasFile('po_attachment')){ 
+        if($request->file('po_attachment')){
             $file = $request->file('po_attachment');
             $path = $file->store('uploads',[
                 'disk' => 'public'
@@ -54,25 +56,23 @@ class ProjectsController extends Controller
             $data['po_attachment'] = $path;
         }
 
-        if($request->hasFile('epo_attachment')){ 
-            $file = $request->file('epo_attachment');
+      if($request->file('epo_attachment')){
+        $file = $request->file('epo_attachment');
             $path = $file->store('uploads',[
                 'disk' => 'public'
             ]);
             $data['epo_attachment'] = $path;
         }
-        
-      
-      
+
      $project = projects::create(  $data);
-     
+
         session()->flash('Add', 'Registration successful.');
         return redirect('/project');
    }
-        
-        
-        
-  
+
+
+
+
 
     /**
      * Display the specified resource.
@@ -87,7 +87,7 @@ class ProjectsController extends Controller
      */
     public function edit($id)
     {
-        
+
         try{
             $project = projects::findOrFail($id);
         }catch(Exception $e){
@@ -108,7 +108,7 @@ return view('dashboard.projects.edit',compact('project','ds','custs','aams','ppm
     /**
      * Update the specified resource in storage.
      */
-  
+
 
     public function update(Request $request, $id)
 {    $project = projects::find($id);
@@ -118,7 +118,7 @@ $old_epo_attachment = $project->epo_attachment;
     $data = $request->except(['po_attachment','epo_attachment']);
 
 
-        if($request->hasFile('po_attachment')){ 
+        if($request->hasFile('po_attachment')){
             $file = $request->file('po_attachment');
             $path = $file->store('uploads',[
                 'disk' => 'public'
@@ -127,7 +127,7 @@ $old_epo_attachment = $project->epo_attachment;
             $data['po_attachment'] = $path;
         }
 
-        if($request->hasFile('epo_attachment')){ 
+        if($request->hasFile('epo_attachment')){
             $file = $request->file('epo_attachment');
             $path = $file->store('uploads',[
                 'disk' => 'public'
@@ -214,16 +214,16 @@ $old_epo_attachment = $project->epo_attachment;
 //     public function store(Request $request)
 //     {
 
-      
+
 //      $project = projects::create(  $request->all());
-     
+
 //         session()->flash('Add', 'Registration successful.');
 //         return redirect('/project');
 //    }
-        
-        
-        
-  
+
+
+
+
 
 //     /**
 //      * Display the specified resource.
@@ -238,7 +238,7 @@ $old_epo_attachment = $project->epo_attachment;
 //      */
 //     public function edit($id)
 //     {
-        
+
 //         try{
 //             $project = projects::findOrFail($id);
 //         }catch(Exception $e){
@@ -259,7 +259,7 @@ $old_epo_attachment = $project->epo_attachment;
 //     /**
 //      * Update the specified resource in storage.
 //      */
-  
+
 
 //     public function update(Request $request, $id)
 // {
